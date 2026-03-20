@@ -10,7 +10,13 @@ import adminRoutes from "./routes/admin.js";
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+app.use(
+    cors({
+        origin: "https://credi-score-client.vercel.app",
+        credentials: true,
+    }),
+);
 
 app.use(express.json({ limit: "10mb" }));
 
