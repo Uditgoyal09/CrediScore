@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@layer base {
+    :root {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: #0f172a;
+        background:
+            radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 28%),
+            radial-gradient(circle at top right, rgba(34, 197, 94, 0.16), transparent 26%),
+            linear-gradient(180deg, #f5fbff 0%, #eef8f2 48%, #f8fafc 100%);
+    }
+
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        min-width: 320px;
+        min-height: 100vh;
+        color: #0f172a;
+        background:
+            radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 28%),
+            radial-gradient(circle at top right, rgba(34, 197, 94, 0.16), transparent 26%),
+            linear-gradient(180deg, #f5fbff 0%, #eef8f2 48%, #f8fafc 100%);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Space Grotesk", sans-serif;
+        letter-spacing: -0.03em;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font: inherit;
+    }
+
+    ::selection {
+        background: rgba(14, 165, 233, 0.2);
+    }
+}
+
+@layer components {
+    .app-shell {
+        @apply min-h-screen text-slate-900;
+    }
+
+    .page-wrap {
+        @apply relative isolate overflow-hidden px-4 py-8 sm:px-6 lg:px-8;
+    }
+
+    .page-wrap::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at 12% 18%, rgba(14, 165, 233, 0.15), transparent 24%),
+            radial-gradient(circle at 82% 16%, rgba(34, 197, 94, 0.14), transparent 22%),
+            radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.05), transparent 30%);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .page-container {
+        @apply mx-auto w-full max-w-7xl;
+    }
+
+    .glass-panel {
+        @apply rounded-[28px] border border-white/60 bg-white/80 shadow-[0_24px_80px_rgba(15,23,42,0.12)] backdrop-blur-xl;
+    }
+
+    .section-card {
+        @apply rounded-[28px] border border-white/60 bg-white/80 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.12)] backdrop-blur-xl sm:p-8;
+    }
+
+    .eyebrow {
+        @apply inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 shadow-sm;
+    }
+
+    .hero-title {
+        @apply text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl;
+    }
+
+    .hero-text {
+        @apply text-base leading-8 text-slate-600 sm:text-lg;
+    }
+
+    .primary-button {
+        @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-linear-to-r from-sky-600 via-cyan-600 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(14,165,233,0.24)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_50px_rgba(14,165,233,0.32)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
+    }
+
+    .secondary-button {
+        @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:text-sky-700;
+    }
+
+    .input-shell {
+        @apply flex items-center rounded-2xl border border-slate-200 bg-white/90 transition duration-300 focus-within:border-sky-400 focus-within:ring-4 focus-within:ring-sky-100;
+    }
+
+    .input-shell input,
+    .input-shell select,
+    .input-shell textarea {
+        @apply w-full rounded-2xl bg-transparent px-4 py-4 text-slate-800 outline-none placeholder:text-slate-400;
+    }
+
+    .input-icon {
+        @apply flex h-full items-center px-4 text-slate-400;
+    }
+
+    .stat-card {
+        @apply relative overflow-hidden rounded-[28px] border border-white/60 bg-white/80 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.12)] backdrop-blur-xl;
+    }
+
+    .feature-card {
+        @apply relative overflow-hidden rounded-[28px] border border-white/60 bg-white/80 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.12)] backdrop-blur-xl transition duration-300 hover:-translate-y-1.5;
+    }
+
+    .data-table {
+        @apply min-w-full text-left text-sm;
+    }
+
+    .data-table thead th {
+        @apply px-4 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500;
+    }
+
+    .data-table tbody td {
+        @apply px-4 py-4 align-top text-slate-700;
+    }
+}
+
+@layer utilities {
+    .text-gradient {
+        @apply bg-linear-to-r from-sky-600 via-cyan-600 to-emerald-600 bg-clip-text text-transparent;
+    }
+
+    .animate-float {
+        animation: float 7s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+        animation: float 8.5s ease-in-out 1s infinite;
+    }
+
+    .animate-grid-pan {
+        animation: gridPan 18s linear infinite;
+    }
+
+    .animate-appear {
+        animation: appear 0.7s ease-out both;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gridPan {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 120px 120px;
+    }
+}
